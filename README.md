@@ -4,7 +4,7 @@ cytoscape-svg
 
 ## Description
 
-Export the current graph view as a SVG. ([demo](https://kinimesi.github.io/cytoscape-svg))
+Export the current graph view as an SVG image. ([demo](https://kinimesi.github.io/cytoscape-svg))
 
 ## Dependencies
 
