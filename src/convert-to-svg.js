@@ -117,12 +117,12 @@ CRp.bufferCanvasImage = function( options, cy){
   return buffCanvas;
 };
 
-function output( options, canvas){
+function output(canvas){
     return canvas.getSerializedSvg();
 }
 
 CRp.svg = function( options ){
-  return output( options, CRp.bufferCanvasImage( options, this ));
+  return output(CRp.bufferCanvasImage(options || {}, this ));
 };
 
 module.exports = CRp;
