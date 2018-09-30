@@ -55,7 +55,7 @@ Plain HTML/JS has the extension registered for you automatically, because no `re
 ```js
 cy.svg(options)
 ```
-* options: the export options
+* **options**: the export options
     * **full**: Whether to export the current viewport view (false, default) or the entire graph (true).
     * **scale**: This value specifies a positive number that scales the size of the resultant image.
 
