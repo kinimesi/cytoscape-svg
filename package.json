@@ -1,6 +1,6 @@
 {
   "name": "cytoscape-svg",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Export the current graph view as a SVG.",
   "main": "cytoscape-svg.js",
   "author": {
