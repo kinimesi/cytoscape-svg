@@ -5,6 +5,7 @@
 	<head>
 		<title>cytoscape-svg.js demo</title>
 
+		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
 
 		<script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
@@ -85,15 +86,23 @@
 			});
 
 			var saveAsSvg = function(filename) {
-			  var svgContent = cy.svg({scale: 1, full: true});
-			  saveAs(new Blob([svgContent], {type:"image/svg+xml;charset=utf-8"}), "demo.svg");
+				var svgContent = cy.svg({scale: 1, full: true});
+				var blob = new Blob([svgContent], {type:"image/svg+xml;charset=utf-8"});
+				saveAs(blob, "demo.svg");
+			};
+			var getSvgUrl = function() {
+				var svgContent = cy.svg({scale: 1, full: true});
+				var blob = new Blob([svgContent], {type:"image/svg+xml;charset=utf-8"});
+				var url = URL.createObjectURL(blob);
+				return url;
 			};
 		</script>
 	</head>
 
 	<body>
 		<h1>cytoscape-svg demo</h1>
-		<button style="color: white; background-color: #008CBA; height: 30px;" onclick="saveAsSvg()">Save as SVG</button>
+		<button style="color: white; background-color: #008CBA; width: 100px; height: 30px;" onclick="saveAsSvg()">Save as SVG</button>
+		<button style="color: white; background-color: #ff0000; width: 100px; height: 30px;" onclick="window.location=getSvgUrl()">View SVG</button>
 
 		<div id="cy"></div>
 
