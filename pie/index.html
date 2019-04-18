@@ -11,14 +11,22 @@
 <script src="../cytoscape-svg.js"></script>
 </head>
 <body>
-<button style="color: white; background-color: #008CBA; height: 30px;" onclick="saveAsSvg()">Save as SVG</button>
+<button style="color: white; background-color: #008CBA; width: 100px; height: 30px;" onclick="saveAsSvg()">Save as SVG</button>
+<button style="color: white; background-color: #ff0000; width: 100px; height: 30px;" onclick="window.location=getSvgUrl()">View SVG</button>
 <div id="cy"></div>
 <!-- Load application code at the end to ensure DOM is loaded -->
 <script src="code.js"></script>
 <script>
 		var saveAsSvg = function(filename) {
-		  var svgContent = cy.svg({scale: 1, full: true});
-		  saveAs(new Blob([svgContent], {type:"image/svg+xml;charset=utf-8"}), "demo.svg");
+			var svgContent = cy.svg({scale: 1, full: true});
+			var blob = new Blob([svgContent], {type:"image/svg+xml;charset=utf-8"});
+			saveAs(blob, "pie.svg");
+		};
+		var getSvgUrl = function() {
+			var svgContent = cy.svg({scale: 1, full: true});
+			var blob = new Blob([svgContent], {type:"image/svg+xml;charset=utf-8"});
+			var url = URL.createObjectURL(blob);
+			return url;
 		};
 </script>
 </body>
