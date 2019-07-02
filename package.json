@@ -41,7 +41,7 @@
     "canvas2svg": "kinimesi/canvas2svg#master",
     "chai": "4.0.2",
     "cross-env": "^5.0.0",
-    "eslint": "^3.9.1",
+    "eslint": "^6.0.1",
     "mocha": "3.4.2",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^3.1.14",
