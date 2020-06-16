@@ -71,6 +71,14 @@ CRp.bufferCanvasImage = function( options, cy){
 
     buffCxt.clearRect( 0, 0, width, height );
 
+    // fill background
+    if( options.bg ){
+      buffCxt.globalCompositeOperation = 'destination-over';
+
+      buffCxt.fillStyle = options.bg;
+      buffCxt.fillRect( 0, 0, width, height );
+    }
+
     buffCxt.globalCompositeOperation = 'source-over';
 
     var zsortedEles = renderer.getCachedZSortedEles();
@@ -102,14 +110,6 @@ CRp.bufferCanvasImage = function( options, cy){
       buffCxt.translate( -translation.x, -translation.y );
     }
 
-    // need to fill bg at end like this in order to fill cleared transparent pixels in jpgs
-    if( options.bg ){
-      buffCxt.globalCompositeOperation = 'destination-over';
-
-      buffCxt.fillStyle = options.bg;
-      buffCxt.rect( 0, 0, width, height );
-      buffCxt.fill();
-    }
   }
 
   // restore usePaths to default value
