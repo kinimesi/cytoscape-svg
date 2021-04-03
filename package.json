@@ -34,7 +34,7 @@
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.5.1",
     "camelcase": "^4.1.0",
-    "canvas2svg": "kinimesi/canvas2svg#master",
+    "canvas2svg": "kinimesi/canvas2svg#unstable",
     "chai": "4.0.2",
     "cross-env": "^5.0.0",
     "eslint": "^6.0.1",
