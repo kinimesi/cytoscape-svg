@@ -6,6 +6,8 @@ cytoscape-svg
 
 Export the current graph view as an SVG image. ([demo](https://kinimesi.github.io/cytoscape-svg))
 
+The exported SVG can be saved as a PDF with [svg2pdf.js](https://github.com/yWorks/svg2pdf.js) libary. See an example in `demo.html`
+
 ## Dependencies
 
  * Cytoscape.js ^3.2.0
