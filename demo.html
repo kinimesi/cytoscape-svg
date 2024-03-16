@@ -10,6 +10,9 @@
 
 		<script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
 		<script src="https://unpkg.com/file-saver@1.3.8/FileSaver.js"></script>
+		<script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+		<script src="https://rawgit.com/yWorks/svg2pdf.js/master/dist/svg2pdf.umd.js"></script>
+
 
 		<!-- for testing with local version of cytoscape.js -->
 		<!--<script src="../cytoscape.js/build/cytoscape.js"></script>-->
@@ -97,6 +100,17 @@
 				var url = URL.createObjectURL(blob);
 				return url;
 			};
+			const saveAsPdf = function(filename) {
+				const width = cy.width() * 1.1;
+				const height = cy.height() * 1.1;
+				const pdf = new jspdf.jsPDF("p","pt", [width, height]);
+				const container = document.createElement('div');
+				container.innerHTML = cy.svg();
+				pdf.svg(container.firstChild).then(() => {
+					pdf.save(filename, {width, height});
+				});
+			};
+
 		</script>
 	</head>
 
@@ -104,6 +118,7 @@
 		<h1>cytoscape-svg demo</h1>
 		<button style="color: white; background-color: #008CBA; width: 100px; height: 30px;" onclick="saveAsSvg()">Save as SVG</button>
 		<button style="color: white; background-color: #ff0000; width: 100px; height: 30px;" onclick="window.location=getSvgUrl()">View SVG</button>
+		<button style="color: white; background-color: #00FFBA; width: 100px; height: 30px;" onclick="saveAsPdf('demo.pdf')">Save as PDF</button>
 
 		<div id="cy"></div>
 
